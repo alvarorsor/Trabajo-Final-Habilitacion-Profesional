@@ -1,0 +1,112 @@
+﻿@model mascotas_perdidas_codefirstV3.Models.Mascota
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Mascota</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Especie.tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Especie.tipo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.raza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.raza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_extravio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_extravio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lugar_extravio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lugar_extravio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.foto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_dueño)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_dueño)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correo_dueño)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo_dueño)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono_dueño)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono_dueño)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,27 @@
+﻿@model mascotas_perdidas_codefirstV3.Models_mascota.Especie
+
+@{
+    ViewBag.Title = "Details";
+ 
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Especie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
