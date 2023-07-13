@@ -22,3 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.detalles--mascota {
+    font-family: 'Mouse Memoirs', sans-serif;
+    font-size: 25px;
+    margin: 2rem
+}

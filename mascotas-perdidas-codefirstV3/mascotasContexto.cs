@@ -17,6 +17,8 @@ namespace mascotas_perdidas_codefirstV3
 
         public DbSet<Mascota> Mascotas { get; set; }
 
+        public DbSet<Mascota_Usuario> Mascotas_Usuarios { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }

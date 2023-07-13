@@ -1,0 +1,36 @@
+﻿@model mascotas_perdidas_codefirstV3.Models.Mascota_Usuario
+
+@{
+    ViewBag.Title = "Details";
+  
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Mascota_Usuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Mascota.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mascota.nombre, "Mascota")
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreUsuario, "Usuario")
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

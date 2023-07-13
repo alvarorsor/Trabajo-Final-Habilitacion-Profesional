@@ -11,128 +11,112 @@ using mascotas_perdidas_codefirstV3.Models;
 
 namespace mascotas_perdidas_codefirstV3.Controllers
 {
-    public class MascotasController : Controller
+    public class Mascota_UsuarioController : Controller
     {
-    
-
         private mascotasContexto db = new mascotasContexto();
 
-        // GET: Mascotas
+        // GET: Mascota_Usuario
         public ActionResult Index()
         {
-            var mascotas = db.Mascotas.Include(m => m.Especie);
-            return View(mascotas.ToList());
+            var mascotas_Usuarios = db.Mascotas_Usuarios.Include(m => m.Mascota);
+            return View(mascotas_Usuarios.ToList());
         }
 
-        // GET: Mascotas/Details/5
+        // GET: Mascota_Usuario/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Mascota mascota = db.Mascotas.Find(id);
-            if (mascota == null)
+            Mascota_Usuario mascota_Usuario = db.Mascotas_Usuarios.Find(id);
+            if (mascota_Usuario == null)
             {
                 return HttpNotFound();
             }
-            return View(mascota);
+            return View(mascota_Usuario);
         }
-        [Authorize]
-        // GET: Mascotas/Create
+
+        // GET: Mascota_Usuario/Create
         public ActionResult Create()
         {
-            ViewBag.IDEspecie = new SelectList(db.Especies, "ID", "tipo");
+            ViewBag.IDMascotas = new SelectList(db.Mascotas, "ID", "nombre");
             return View();
         }
-        [Authorize]
-        // POST: Mascotas/Create
+
+        // POST: Mascota_Usuario/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,IDEspecie,nombre,edad,raza,fecha_extravio,lugar_extravio,descripcion,foto,nombre_dueño,correo_dueño,telefono_dueño")] Mascota mascota)
+        public ActionResult Create([Bind(Include = "ID,nombreUsuario,IDMascotas")] Mascota_Usuario mascota_Usuario)
         {
-
-            Mascota_Usuario mascota_Usuario = new Mascota_Usuario();
-
-            mascota_Usuario.IDMascotas = mascota.ID;
-            mascota_Usuario.Mascota = mascota;
-            mascota_Usuario.nombreUsuario = User.Identity.Name;
-
-            Mascota_UsuarioController mascota_usuarioController = new Mascota_UsuarioController();
-
-            mascota_usuarioController.Create(mascota_Usuario);
-
             if (ModelState.IsValid)
             {
-                db.Mascotas.Add(mascota);
+                db.Mascotas_Usuarios.Add(mascota_Usuario);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-           
 
-          
-
-            ViewBag.IDEspecie = new SelectList(db.Especies, "ID", "tipo", mascota.IDEspecie);
-            return View(mascota);
+            ViewBag.IDMascotas = new SelectList(db.Mascotas, "ID", "nombre", mascota_Usuario.IDMascotas);
+            return View(mascota_Usuario);
         }
-        [Authorize]
-        // GET: Mascotas/Edit/5
+
+        // GET: Mascota_Usuario/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Mascota mascota = db.Mascotas.Find(id);
-            if (mascota == null)
+            Mascota_Usuario mascota_Usuario = db.Mascotas_Usuarios.Find(id);
+            if (mascota_Usuario == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.IDEspecie = new SelectList(db.Especies, "ID", "tipo", mascota.IDEspecie);
-            return View(mascota);
+            ViewBag.IDMascotas = new SelectList(db.Mascotas, "ID", "nombre", mascota_Usuario.IDMascotas);
+            return View(mascota_Usuario);
         }
-        [Authorize]
-        // POST: Mascotas/Edit/5
+
+        // POST: Mascota_Usuario/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,IDEspecie,nombre,edad,raza,fecha_extravio,lugar_extravio,descripcion,foto,nombre_dueño,correo_dueño,telefono_dueño")] Mascota mascota)
+        public ActionResult Edit([Bind(Include = "ID,nombreUsuario,IDMascotas")] Mascota_Usuario mascota_Usuario)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(mascota).State = EntityState.Modified;
+                db.Entry(mascota_Usuario).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IDEspecie = new SelectList(db.Especies, "ID", "tipo", mascota.IDEspecie);
-            return View(mascota);
+            ViewBag.IDMascotas = new SelectList(db.Mascotas, "ID", "nombre", mascota_Usuario.IDMascotas);
+            return View(mascota_Usuario);
         }
-        [Authorize]
-        // GET: Mascotas/Delete/5
+
+        // GET: Mascota_Usuario/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Mascota mascota = db.Mascotas.Find(id);
-            if (mascota == null)
+            Mascota_Usuario mascota_Usuario = db.Mascotas_Usuarios.Find(id);
+            if (mascota_Usuario == null)
             {
                 return HttpNotFound();
             }
-            return View(mascota);
+            return View(mascota_Usuario);
         }
-        [Authorize]
-        // POST: Mascotas/Delete/5
+
+        // POST: Mascota_Usuario/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Mascota mascota = db.Mascotas.Find(id);
-            db.Mascotas.Remove(mascota);
+            Mascota_Usuario mascota_Usuario = db.Mascotas_Usuarios.Find(id);
+            db.Mascotas_Usuarios.Remove(mascota_Usuario);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

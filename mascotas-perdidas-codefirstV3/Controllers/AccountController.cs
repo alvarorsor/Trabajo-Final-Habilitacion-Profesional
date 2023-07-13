@@ -26,6 +26,8 @@ namespace mascotas_perdidas_codefirstV3.Controllers
         {
             UserManager = userManager;
             SignInManager = signInManager;
+
+           
         }
 
         public ApplicationSignInManager SignInManager
@@ -152,6 +154,7 @@ namespace mascotas_perdidas_codefirstV3.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+               
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
