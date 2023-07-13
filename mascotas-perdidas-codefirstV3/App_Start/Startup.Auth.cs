@@ -58,11 +58,11 @@ namespace mascotas_perdidas_codefirstV3
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+           app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "621449376884-dk7bkc4efhehr3ivsashrms254009ih4.apps.googleusercontent.com",
+                ClientSecret = "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"
+           });
         }
     }
 }

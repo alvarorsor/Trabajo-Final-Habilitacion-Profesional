@@ -36,14 +36,14 @@ namespace mascotas_perdidas_codefirstV3.Controllers
             }
             return View(mascota);
         }
-
+        [Authorize]
         // GET: Mascotas/Create
         public ActionResult Create()
         {
             ViewBag.IDEspecie = new SelectList(db.Especies, "ID", "tipo");
             return View();
         }
-
+        [Authorize]
         // POST: Mascotas/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -61,7 +61,7 @@ namespace mascotas_perdidas_codefirstV3.Controllers
             ViewBag.IDEspecie = new SelectList(db.Especies, "ID", "tipo", mascota.IDEspecie);
             return View(mascota);
         }
-
+        [Authorize]
         // GET: Mascotas/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -77,7 +77,7 @@ namespace mascotas_perdidas_codefirstV3.Controllers
             ViewBag.IDEspecie = new SelectList(db.Especies, "ID", "tipo", mascota.IDEspecie);
             return View(mascota);
         }
-
+        [Authorize]
         // POST: Mascotas/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -94,7 +94,7 @@ namespace mascotas_perdidas_codefirstV3.Controllers
             ViewBag.IDEspecie = new SelectList(db.Especies, "ID", "tipo", mascota.IDEspecie);
             return View(mascota);
         }
-
+        [Authorize]
         // GET: Mascotas/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -109,7 +109,7 @@ namespace mascotas_perdidas_codefirstV3.Controllers
             }
             return View(mascota);
         }
-
+        [Authorize]
         // POST: Mascotas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
