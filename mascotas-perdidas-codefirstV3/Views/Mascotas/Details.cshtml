@@ -1,106 +1,152 @@
 ﻿@model mascotas_perdidas_codefirstV3.Models.Mascota
 
+
 @{
     ViewBag.Title = "Details";
 }
 
+<link rel="stylesheet" href="~/Content/Site.css">
+
+<!--google fonts-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
+
 <h2>Details</h2>
 
-<div>
-    <h4>Mascota</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Especie.tipo)
-        </dt>
+<h4>Mascota</h4>
+<hr />
 
-        <dd>
-            @Html.DisplayFor(model => model.Especie.tipo)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.edad)
-        </dt>
+<div class="detalles--mascota">
 
-        <dd>
-            @Html.DisplayFor(model => model.edad)
-        </dd>
+    <div class="campos-izquierda">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.raza)
-        </dt>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Especie.tipo)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.raza)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Especie.tipo)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.fecha_extravio)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.fecha_extravio)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.lugar_extravio)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.edad)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.lugar_extravio)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.edad)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.descripcion)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.raza)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.descripcion)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.raza)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.foto)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.fecha_extravio)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.foto)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.fecha_extravio)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre_dueño)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.lugar_extravio)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombre_dueño)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.lugar_extravio)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.correo_dueño)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.correo_dueño)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.descripcion)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.telefono_dueño)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.foto)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.telefono_dueño)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.foto)
+            </dd>
 
-    </dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre_dueño)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nombre_dueño)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.correo_dueño)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.correo_dueño)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.telefono_dueño)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.telefono_dueño)
+            </dd>
+
+        </dl>
+
+
+    </div>
+
+
+
+    <h3 id="datos-de-contacto">DATOS DE CONTACTO</h3>
+
+    <div class="datos-contacto-dueño">
+
+        <div class="box_dueño_nombre">
+            <p id="box_dueño-user">{userIcon}</p>
+            <p id="box_dueño-nombre-1">DUEÑO</p>
+            <p id="box_dueño-nombre">{thisService.attributes.nombreDuenio}</p>
+        </div>
+
+
+        <div class="box_dueño_telefono">
+            <p id="box_dueño-user">{phoneIcon}</p>
+            <p id="box_dueño-nombre-1">TELEFONO</p>
+            <p id="box_dueño-nombre">{thisService.attributes.telefonoDuenio}</p>
+        </div>
+
+        <div class="box_dueño_correo">
+            <p id="box_dueño-user">{mailIcon}</p>
+            <p id="box_dueño-nombre-1">CORREO</p>
+            <p id="box_dueño-nombre">{thisService.attributes.mailDuenio}</p>
+        </div>
+
+    </div>{/*cierra datos-contacto-dueño*/}
+
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
