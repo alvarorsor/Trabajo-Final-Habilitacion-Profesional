@@ -93,25 +93,17 @@
                 @Html.DisplayNameFor(model => model.nombre_dueño)
             </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.nombre_dueño)
-            </dd>
-
+            
             <dt>
                 @Html.DisplayNameFor(model => model.correo_dueño)
             </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.correo_dueño)
-            </dd>
-
+            
             <dt>
                 @Html.DisplayNameFor(model => model.telefono_dueño)
             </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.telefono_dueño)
-            </dd>
+            
 
         </dl>
 
@@ -120,30 +112,30 @@
 
 
 
-    <h3 id="datos-de-contacto">DATOS DE CONTACTO</h3>
+    <h3 class="datos-de-contacto">DATOS DE CONTACTO</h3>
 
     <div class="datos-contacto-dueño">
 
         <div class="box_dueño_nombre">
             <p id="box_dueño-user">{userIcon}</p>
             <p id="box_dueño-nombre-1">DUEÑO</p>
-            <p id="box_dueño-nombre">{thisService.attributes.nombreDuenio}</p>
+            <p id="box_dueño-nombre">@Html.DisplayFor(model => model.nombre_dueño)</p>
         </div>
 
 
         <div class="box_dueño_telefono">
             <p id="box_dueño-user">{phoneIcon}</p>
             <p id="box_dueño-nombre-1">TELEFONO</p>
-            <p id="box_dueño-nombre">{thisService.attributes.telefonoDuenio}</p>
+            <p id="box_dueño-nombre"> @Html.DisplayFor(model => model.telefono_dueño)</p>
         </div>
 
         <div class="box_dueño_correo">
             <p id="box_dueño-user">{mailIcon}</p>
             <p id="box_dueño-nombre-1">CORREO</p>
-            <p id="box_dueño-nombre">{thisService.attributes.mailDuenio}</p>
+            <p id="box_dueño-nombre">@Html.DisplayFor(model => model.correo_dueño)</p>
         </div>
 
-    </div>{/*cierra datos-contacto-dueño*/}
+    </div>
 
 </div>
     <p>

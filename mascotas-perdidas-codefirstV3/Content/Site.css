@@ -27,4 +27,53 @@ textarea {
     font-family: 'Mouse Memoirs', sans-serif;
     font-size: 25px;
     margin: 2rem
+
 }
+
+
+.campos-izquierda {
+    display: flex;
+}
+
+
+.datos-contacto-dueño {
+    display: flex;
+    justify-content: space-around;
+}
+
+.datos-de-contacto {
+    color: #377BE2;
+    font-size: 3rem;
+    text-align: center;
+    font-weight: bolder;
+}
+
+
+
+.box_dueño_nombre:hover, .box_dueño_correo:hover, .box_dueño_telefono:hover {
+    transform: scale(1.1);
+}
+
+#box_dueño-nombre {
+    font-size: 20px;
+}
+
+#box_dueño-nombre-1 {
+    color: black
+}
+
+#box_dueño-user {
+    font-size: 40px;
+}
+
+.box_dueño_telefono {
+    background-color: #F6E4C7;
+}
+
+.box_dueño_correo {
+    background-color: #0D9490;
+}
+
+    .box_dueño_correo > p {
+        color: #FFFFFF;
+    }
