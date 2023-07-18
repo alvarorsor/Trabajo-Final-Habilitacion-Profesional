@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<mascotas_perdidas_codefirstV3.Models.Mascota>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "MisMascotas";
+   
 }
 
-<h2>Index</h2>
+<h2>MisMascotas</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -32,7 +33,9 @@
         <th>
             @Html.DisplayNameFor(model => model.descripcion)
         </th>
-        
+        <th>
+            @Html.DisplayNameFor(model => model.foto)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.nombre_dueño)
         </th>
@@ -68,7 +71,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.descripcion)
         </td>
-       
+        <td>
+            @Html.DisplayFor(modelItem => item.foto)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.nombre_dueño)
         </td>

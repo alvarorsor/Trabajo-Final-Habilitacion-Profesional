@@ -37,6 +37,24 @@ namespace mascotas_perdidas_codefirstV3.Controllers
             return View(mascota_Usuario);
         }
 
+       
+        public List<int> DetailsUserMascota(string usuario)
+        {
+            List<int> idMascotas = new List<int>();
+
+            foreach(var item in db.Mascotas_Usuarios)
+            {
+                if (item.nombreUsuario == usuario)
+                {
+                    idMascotas.Add(item.IDMascotas);
+                }
+                
+            }
+
+
+            return idMascotas;
+        }
+
         // GET: Mascota_Usuario/Create
         public ActionResult Create()
         {

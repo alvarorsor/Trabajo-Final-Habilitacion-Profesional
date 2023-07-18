@@ -7,13 +7,13 @@ namespace mascotas_perdidas_codefirstV3.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class reqired2 : IMigrationMetadata
+    public sealed partial class foto3 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(reqired2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(foto3));
         
         string IMigrationMetadata.Id
         {
-            get { return "202307131645077_reqired2"; }
+            get { return "202307172249491_foto3"; }
         }
         
         string IMigrationMetadata.Source

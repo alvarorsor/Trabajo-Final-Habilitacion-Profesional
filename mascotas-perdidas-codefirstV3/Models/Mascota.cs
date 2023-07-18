@@ -1,11 +1,10 @@
-﻿using Castle.MicroKernel.SubSystems.Conversion;
-using mascotas_perdidas_codefirstV3.Models_mascota;
+﻿using mascotas_perdidas_codefirstV3.Models_mascota;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace mascotas_perdidas_codefirstV3.Models
 {
@@ -38,8 +37,6 @@ namespace mascotas_perdidas_codefirstV3.Models
         [StringLength(50)]
         public string descripcion { get; set; }
 
-        [Column(TypeName = "image")]
-        public byte[] foto { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -51,7 +48,13 @@ namespace mascotas_perdidas_codefirstV3.Models
         [Required]
         public long telefono_dueño { get; set; }
 
-        
+       public string ImageUrl { get; set; }
+
+
+        [Required(ErrorMessage ="Please choose Front Image")]
+        [Display(Name ="Front Image")]
+        [NotMapped]
+        public IFormFile FrontImage { get; set; }
 
     }
 }
