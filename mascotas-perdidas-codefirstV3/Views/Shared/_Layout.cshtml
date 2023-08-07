@@ -1,13 +1,15 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-
-
-
-
+﻿
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+    <link rel="stylesheet" href="~/Content/Site.css" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 
 
     <!--google fonts-->
@@ -15,19 +17,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
 
-
-
-    <title>@ViewBag.Title - AMIGOS PERDIDOS</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/bootstrap")
-    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
-    @Scripts.Render("~/bundles/modernizr")
-
-
-
-    
-
 </head>
+
+
 
 
     
@@ -81,4 +73,4 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
-</html>
+
