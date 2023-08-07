@@ -1,151 +1,196 @@
 ﻿@model mascotas_perdidas_codefirstV3.Models.Mascota
 
-
 @{
     ViewBag.Title = "Details";
+
 }
-
-<link rel="stylesheet" href="~/Content/Site.css">
-
-<!--google fonts-->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
 
 <h2>Details</h2>
 
-<h4>Mascota</h4>
-<hr />
+<div>
+
+
+    <div class="detalles--mascota">
+
+        <div class="campos--izquierda--derecha">
+
+            <div class="campos-izquierda">
+
+                <div class="campos">
+
+                    <label>@Html.DisplayNameFor(model => model.Especie.tipo)</label>
+                    <br />
+                    <label>@Html.DisplayNameFor(model => model.raza)</label>
+                    <br />
+                    <label>@Html.DisplayNameFor(model => model.fecha_extravio)</label>
+                    <br />
+                    <label>@Html.DisplayNameFor(model => model.descripcion)</label>
+                    <br />
+
+                </div>
 
 
 
+                <div class="campos-datos">
 
-<div class="detalles--mascota">
 
-    <div class="campos-izquierda">
+                    <label>@Html.DisplayFor(model => model.Especie.tipo)</label>
+                    <br />
+                    <label>@Html.DisplayFor(model => model.raza)</label>
+                    <br />
+                    <label>@Html.DisplayFor(model => model.fecha_extravio)</label>
+                    <br />
+                    <label class="observaciones">@Html.DisplayFor(model => model.descripcion)</label>
 
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Especie.tipo)
-            </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Especie.tipo)
-            </dd>
+                </div>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.nombre)
-            </dt>
+            </div>
+            <!--cierra campos-izquierda-->
 
-            <dd>
-                @Html.DisplayFor(model => model.nombre)
-            </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.edad)
-            </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.edad)
-            </dd>
+            <div class="campos-derecha">
 
-            <dt>
-                @Html.DisplayNameFor(model => model.raza)
-            </dt>
+                <h1 class="detalles--mascota--nombre">@Html.DisplayFor(model => model.nombre)</h1>
+                <br />
+                <img src="" class="detalles--mascota--imagen" />
 
-            <dd>
-                @Html.DisplayFor(model => model.raza)
-            </dd>
+            </div>
+            <!--cierra campos-derecha-->
 
-            <dt>
-                @Html.DisplayNameFor(model => model.fecha_extravio)
-            </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.fecha_extravio)
-            </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.lugar_extravio)
-            </dt>
+        </div>
+        <!--cierra campos-izquierda-derecha-->
 
-            <dd>
-                @Html.DisplayFor(model => model.lugar_extravio)
-            </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.descripcion)
-            </dt>
+        <h3 id="datos-de-contacto">DATOS DE CONTACTO</h3>
 
-            <dd>
-                @Html.DisplayFor(model => model.descripcion)
-            </dd>
+        <div class="datos-contacto-dueño">
 
-            <dt>
-                @Html.DisplayNameFor(model => model.foto)
-            </dt>
+            <div class="box_dueño_nombre">
+                <p id="box_dueño-user">{userIcon}</p>
+                <p id="box_dueño-nombre-1">DUEÑO</p>
+                <p id="box_dueño-nombre">@Html.DisplayFor(model => model.nombre_dueño)</p>
+            </div>
 
-            <dd>
-                @Html.DisplayFor(model => model.foto)
-            </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.nombre_dueño)
-            </dt>
+            <div class="box_dueño_telefono">
+                <p id="box_dueño-user">{phoneIcon}</p>
+                <p id="box_dueño-nombre-1">TELEFONO</p>
+                <p id="box_dueño-nombre">@Html.DisplayFor(model => model.telefono_dueño)</p>
+            </div>
 
-            <dd>
-                @Html.DisplayFor(model => model.nombre_dueño)
-            </dd>
+            <div class="box_dueño_correo">
+                <p id="box_dueño-user">{mailIcon}</p>
+                <p id="box_dueño-nombre-1">CORREO</p>
+                <p id="box_dueño-nombre">@Html.DisplayFor(model => model.correo_dueño)</p>
+            </div>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.correo_dueño)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.correo_dueño)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.telefono_dueño)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.telefono_dueño)
-            </dd>
-
-        </dl>
-
+        </div>
+        <!--cierra datos-contacto-dueño-->
 
     </div>
 
 
+    <!--
+    <h4>Mascota</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Especie.tipo)
+        </dt>
 
-    <h3 id="datos-de-contacto">DATOS DE CONTACTO</h3>
+        <dd>
+            @Html.DisplayFor(model => model.Especie.tipo)
+        </dd>
 
-    <div class="datos-contacto-dueño">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
 
-        <div class="box_dueño_nombre">
-            <p id="box_dueño-user">{userIcon}</p>
-            <p id="box_dueño-nombre-1">DUEÑO</p>
-            <p id="box_dueño-nombre">{thisService.attributes.nombreDuenio}</p>
-        </div>
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.edad)
+        </dt>
 
-        <div class="box_dueño_telefono">
-            <p id="box_dueño-user">{phoneIcon}</p>
-            <p id="box_dueño-nombre-1">TELEFONO</p>
-            <p id="box_dueño-nombre">{thisService.attributes.telefonoDuenio}</p>
-        </div>
+        <dd>
+            @Html.DisplayFor(model => model.edad)
+        </dd>
 
-        <div class="box_dueño_correo">
-            <p id="box_dueño-user">{mailIcon}</p>
-            <p id="box_dueño-nombre-1">CORREO</p>
-            <p id="box_dueño-nombre">{thisService.attributes.mailDuenio}</p>
-        </div>
+        <dt>
+            @Html.DisplayNameFor(model => model.raza)
+        </dt>
 
-    </div>{/*cierra datos-contacto-dueño*/}
+        <dd>
+            @Html.DisplayFor(model => model.raza)
+        </dd>
 
-</div>
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_extravio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_extravio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lugar_extravio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lugar_extravio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.foto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_dueño)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_dueño)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correo_dueño)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo_dueño)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono_dueño)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono_dueño)
+        </dd>
+
+    </dl>
+
+        -->
+
+    </div>
     <p>
         @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
         @Html.ActionLink("Back to List", "Index")

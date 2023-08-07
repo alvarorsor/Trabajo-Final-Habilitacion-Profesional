@@ -1,7 +1,86 @@
 ﻿@{
     ViewBag.Title = "About";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+}
+<head>
+    <link rel="stylesheet" href="~/Content/Styles.css" />
+</head>
+
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-sm-3">
+            <img src="https://bancos.salud.gob.ar/sites/default/files/2020-08/0000001446cnt-pre-Boletn-Virtual-MCS_Nro_13-1.jpg" width="200" height="200" />
+        </div>
+        <div class="col-sm-9">
+            <h3 class="text-primary">Realizar una donacion</h3>
+            <p>
+                Para ayudarnos con el mantenimiento de nuestro sitio web y nuestra dedicacion puedes realizar una donacion con el monto que desees y creas conveniente
+            </p>
+
+            <h3 class="text-danger">Ingresa el monto</h3>
+            <input type="number" id="valor_pago" />
+            <button class="btn btn-success" onclick="pagar()"><i class="fab fa-paypal"></i> Realizar Pago</button>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+@section scripts{
+    <script>
+
+        function pagar() {
+
+
+            var body = {
+                precio: $("#valor_pago").val(),
+                producto: "Donacion -Mascotas Perdidas- sitio web"
+            }
+
+
+
+            jQuery.ajax({
+                url: '@Url.Action("Paypal", "Home")',
+                type: "POST",
+                data: JSON.stringify(body),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+
+                     console.log(data);
+                    // $("div.jumbotron").LoadingOverlay("hide");
+
+                     if (data.status) {
+
+                         var jsonresult = JSON.parse(data.respuesta);
+
+                         console.log(jsonresult);
+
+                         var links = jsonresult.links;
+
+                        var resultado = links.find(item => item.rel === "approve")
+
+                         window.location.href = resultado.href
+
+                         /*console.log(links)*/
+                         /*console.log(resultado)*/
+                     } else {
+                        alert("Vuelva a intentarlo más tarde")
+                     }
+
+
+                },
+                beforeSend: function () {
+                   // $("div.jumbotron").LoadingOverlay("show");
+                }
+            });
+
+
+        }
+
+    </script>
+
+}
