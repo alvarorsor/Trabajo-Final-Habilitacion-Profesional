@@ -3,9 +3,16 @@
 
 html {
     font-family: 'Mouse Memoirs', sans-serif;
+
 }
 
-
+footer {
+   
+    
+    background-color: blue;
+     margin: 1rem;
+    color: red;
+}
 
 
 /* Set padding to keep content from hitting the edges */
@@ -24,10 +31,511 @@ textarea {
     max-width: 280px;
 }
 
+
+
+
+body {
+
+}
+
+.registrarMascotaCampos {
+    font-family: 'Mouse Memoirs', sans-serif;
+    font-size: 20px;
+    margin: 1rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+
+h1 {
+    color: rgb(14, 184, 214);
+}
+
+input {
+    width: 20rem;
+}
+
+label {
+    color: darkolivegreen;
+}
+
+
+.seccion--izquierda > p {
+    margin: 0px;
+    color: darkolivegreen;
+    margin-top: 1rem;
+}
+
+.seccion--derecha {
+    margin-top: 5rem;
+}
+
+    .seccion--derecha > p {
+        margin: 0px;
+        color: darkolivegreen;
+        margin-top: 1rem;
+    }
+
+    .seccion--derecha > input {
+        color: darkolivegreen;
+        margin-bottom: 1rem;
+    }
+
+.registrarMascotaCampos > input {
+    width: 15rem;
+}
+
+.observaciones--campo {
+    height: 5rem;
+}
+
+.busqueda--mascota--campos {
+    font-family: 'Mouse Memoirs', sans-serif;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+    .busqueda--mascota--campos > input {
+        width: 10rem;
+        margin: 0px;
+    }
+
+    .busqueda--mascota--campos > select {
+        margin: 0px;
+    }
+
+    .busqueda--mascota--campos > p {
+        margin: 0px;
+        color: darkolivegreen;
+    }
+
+.seccion--izquierda > h1 {
+    position: center;
+}
+
+.cards-list {
+    max-width: 1500px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.cards-list-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.mascota-list-item {
+    margin: 1rem;
+}
+
+@media (max-width: 675px) {
+    .cards-list-flex {
+        flex-direction: row;
+    }
+
+    .mascota-list-item {
+        width: 65%;
+        min-width: 200px;
+        margin-left: 1
+    }
+
+    .registrarMascotaCampos {
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+    input, select, .text-area {
+        width: 90%;
+    }
+
+    .btn-registrar-mascota {
+        margin-left: 30%;
+    }
+}
+/*close media*/
+
+@media (min-width: 675px) {
+    .cards-list-flex {
+        flex-direction: row;
+    }
+
+
+    .mascota-list-item {
+        width: 45%;
+    }
+}
+/*close media*/
+
+@media (min-width: 1073px) {
+    .cards-list-flex {
+        flex-direction: row;
+    }
+
+    .mascota-list-item {
+        width: 25%;
+    }
+}
+/*close media*/
+
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+p, ul {
+    font-size: 17px;
+    line-height: 34px;
+}
+
+.sub-header {
+    color: #292929;
+    letter-spacing: -0.4px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    background: #ffefd5;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 2px;
+    border-radius: 20px;
+    font-size: 22px;
+}
+
+.team-wrap {
+    border-radius: 15px;
+}
+
+    .team-wrap .member {
+        border-radius: 15px;
+        background-clip: padding-box;
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        border-bottom: 10px solid;
+        background-color: #F5F3EE;
+        border-color: #108896;
+    }
+
+        .team-wrap .member .wrap {
+            position: relative;
+            transition: all .3s ease;
+        }
+
+            .team-wrap .member .wrap .info {
+                padding: 20px 0;
+                top: 0%;
+                width: 100%;
+            }
+
+        .team-wrap .member:hover .info {
+            top: 0;
+        }
+
+        .team-wrap .member .wrap .info .position {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .team-wrap .member:hover img {
+            opacity: 0;
+        }
+
+
+        .team-wrap .member .wrap img {
+            width: 100%;
+            transition: all .3s ease;
+            padding: 20px;
+        }
+
+.img-circle, .blog-post, .sidebar, .accordion-group {
+    border-color: #F5F3EE;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.team-wrap .member:hover .more {
+    bottom: 0;
+}
+
+.team-wrap .member .more {
+    position: absolute;
+    bottom: -100%;
+    width: 100%;
+    padding: 10px;
+    transition: all .3s ease;
+}
+
+
+.seccion--izquierda > input {
+    margin-bottom: 1rem;
+}
+
+
 .detalles--mascota {
     font-family: 'Mouse Memoirs', sans-serif;
     font-size: 25px;
     margin: 2rem
 }
+
+    .detalles--mascota > label {
+        margin-bottom: 1rem
+    }
+
+
+.box_label {
+    max-width: 15rem;
+    background-color: ghostwhite;
+    margin-left: 8rem;
+    text-align: center;
+}
+
+textarea {
+    width: 20rem;
+    height: 15rem;
+}
+
+.box_dueño_nombre, .box_dueño_telefono, .box_dueño_correo {
+    height: 250px;
+    width: 250px;
+    background-color: #D9D9D9;
+    color: #0D9490;
+    flex-direction: row;
+    text-align: center;
+    padding-top: 3%;
+    border-radius: 10%;
+    font-size: 2rem;
+    transition: all .2s ease-in-out;
+}
+
+
+
+    .box_dueño_nombre:hover, .box_dueño_correo:hover, .box_dueño_telefono:hover {
+        transform: scale(1.1);
+    }
+
+#box_dueño-nombre {
+    font-size: 20px;
+}
+
+#box_dueño-nombre-1 {
+    color: black
+}
+
+#box_dueño-user {
+    font-size: 40px;
+}
+
+.box_dueño_telefono {
+    background-color: #F6E4C7;
+}
+
+.box_dueño_correo {
+    background-color: #0D9490;
+}
+
+    .box_dueño_correo > p {
+        color: #FFFFFF;
+    }
+
+.datos-contacto-dueño {
+    display: flex;
+    justify-content: space-around;
+}
+
+#datos-de-contacto {
+    color: #377BE2;
+    font-size: 3rem;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.campos-izquierda {
+    display: flex;
+}
+
+.campos {
+    margin-right: 5rem;
+}
+
+.campos-datos {
+    max-width: 20rem;
+}
+
+.campos > label {
+    color: #9b9292;
+}
+
+.detalles--mascota--imagen {
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.campos--izquierda--derecha {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.detalles--mascota--nombre {
+    position: center;
+}
+
+
+input.invalid {
+    border-color: #900;
+    background-color: #FDD;
+}
+
+.btn--buscar--mascota {
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Baloo Thambi', sans-serif;
+    font-size: 15px;
+    transition: all .3s ease-in-out;
+    border-radius: 25px;
+    letter-spacing: 0.1px;
+    line-height: 1em;
+    padding: 20px 30px;
+    text-transform: uppercase;
+    box-shadow: inset 9px 0px 0px 0px #f19f1f;
+    background-color: #EF5030;
+}
+
+
+    .btn--buscar--mascota:hover {
+        background-color: #108896;
+        color: #fff;
+        box-shadow: none;
+        text-decoration: none;
+    }
+
+
+.select--buscar--especie {
+    transition: all .2s ease-in-out;
+    border-radius: 25px;
+    font-size: 20px;
+    text-align: center;
+    padding: 1rem;
+    background-color: #108896;
+    color: #fff;
+}
+
+    .select--buscar--especie:hover {
+        background-color: #EF5030;
+        color: #fff;
+    }
+
+.input--especie {
+    background: #ffefd5;
+    display: block;
+    width: 100%;
+    height: 54px;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: 0;
+    box-shadow: none;
+    border: 2px solid;
+    margin-bottom: 15px;
+    border-color: #F19F1F;
+    padding-left: 1rem;
+}
+
+.buscar--mascota > p {
+    color: grey
+}
+
+
+.carousel-item-img {
+    width: 500px;
+    height: 500px;
+}
+
+.link-registrar-mascota {
+    border-color: #F19F1F;
+}
+
+.carousel-caption {
+    background-color: #108996b0;
+    left: 0;
+    border-radius: 5rem;
+}
+
+    .carousel-caption > h3, .slider-control > h3 {
+        color: #ffffff;
+        font-size: 3rem;
+        font-weight: bold;
+    }
+
+    .carousel-caption > p, .slider-control > p {
+        color: #ffffff;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+.btn--registrar--mascota {
+    background-color: #0D9490;
+}
+
+.cards-home {
+    padding: 3rem;
+}
+
+    .cards-home > h1, p {
+        text-align: center;
+    }
+
+    .cards-home > p {
+        color: #757373
+    }
+
+.card > img {
+    width: auto;
+    height: auto;
+}
+
+
+.filtro-cards {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+}
+
+    .filtro-cards > input {
+        color: darkolivegreen;
+        margin-bottom: 1rem;
+    }
+
+
+
+.buscar--mascota > p {
+    color: #9b9292;
+    margin-top: 1rem;
+}
+
+.buscar--mascota {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+
 
 

@@ -1,28 +1,28 @@
-﻿
+﻿<!DOCTYPE html>
+<html>
+
+
+
 <head>
 
 
-    <link rel="stylesheet" href="~/Content/Site.css" />
+
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <title>@ViewBag.Title - AMIGOS PERDIDOS</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-
-    <!--google fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/Site.css" />
 
 </head>
 
 
 
 
-    
+
 
 
 <body>
@@ -45,7 +45,8 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                     <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Mascotas perdidas", "Index", "Mascotas")</li>
+                    <li>@Html.ActionLink("Registrar mascota", "Create", "Mascotas")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -62,10 +63,10 @@
 
         <hr />
         <footer>
-            <p>  2022 Amigos Perdidos.</p>
-            <p>  (381) 2222 07 3129</p>
-            <p> hola@amigosperdidos.org</p>
-            <p> San Miguel De Tucuman, Argentina</p>
+           
+                2022 Amigos Perdidos             (381) 2222 07 3129              hola@amigosperdidos.org                San Miguel De Tucuman, Argentina
+           
+           
         </footer>
     </div>
 
@@ -74,3 +75,4 @@
     @RenderSection("scripts", required: false)
 </body>
 
+</html>
