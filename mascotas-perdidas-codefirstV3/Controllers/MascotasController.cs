@@ -21,10 +21,18 @@ namespace mascotas_perdidas_codefirstV3.Controllers
         public ActionResult Index()
         {
             var mascotas = db.Mascotas.Include(m => m.Especie);
-            return View(mascotas.ToList());
+
+
+            var renderMascota =
+       from mascota in mascotas
+       where mascota.encontrada == true
+       select mascota;
+
+
+            return View(renderMascota.ToList());
         }
 
-        // GET: Mis Mascotas
+        // GET: Mascotas/Mis_Mascotas
         public ActionResult Mis_Mascotas()
         {
 
@@ -151,6 +159,33 @@ namespace mascotas_perdidas_codefirstV3.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        // GET: Mascotas/Mascotas_Encontradas/8
+        public ActionResult Mascotas_Encontradas(int id)
+        {
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            db.Mascotas.Find(id).encontrada = true;
+            db.SaveChanges();
+
+            Mascota mascota = db.Mascotas.Find(id);
+            if (mascota == null)
+            {
+                return HttpNotFound();
+            }
+
+            
+
+            ViewBag.IDEspecie = new SelectList(db.Especies, "ID", "tipo", mascota.IDEspecie);
+            return View(mascota);
+
+            
+            
         }
     }
 }

@@ -2,8 +2,11 @@
 
 @{
     ViewBag.Title = "Mis_Mascotas";
-   
+
 }
+
+
+
 
 <h2>Mis_Mascotas</h2>
 
@@ -39,6 +42,8 @@
                             <p>@Html.DisplayFor(modelItem => item.descripcion)</p>
                             <!-- DETALLES  -->
                             @Html.ActionLink("DETALLES", "Details", new { id = item.ID })
+                            <br />
+                            @Html.ActionLink("LA ENCONTRE", "Mascotas_Encontradas", new { id = item.ID })
                         </div>
                         <!-- /more   -->
 

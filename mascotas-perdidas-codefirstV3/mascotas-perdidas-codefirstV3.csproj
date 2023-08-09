@@ -263,9 +263,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="mascotasContexto.cs" />
-    <Compile Include="Migrations\202307292139326_asdasd.cs" />
-    <Compile Include="Migrations\202307292139326_asdasd.Designer.cs">
-      <DependentUpon>202307292139326_asdasd.cs</DependentUpon>
+    <Compile Include="Migrations\202308092129249_asd.cs" />
+    <Compile Include="Migrations\202308092129249_asd.Designer.cs">
+      <DependentUpon>202308092129249_asd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Especie.cs" />
@@ -359,6 +359,7 @@
     <Content Include="Views\Home\Pago_realizado.cshtml" />
     <Content Include="Views\Mascotas\Details.cshtml" />
     <Content Include="Views\Mascotas\Mis_Mascotas.cshtml" />
+    <Content Include="Views\Mascotas\Mascotas_Encontradas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -372,8 +373,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202307292139326_asdasd.resx">
-      <DependentUpon>202307292139326_asdasd.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202308092129249_asd.resx">
+      <DependentUpon>202308092129249_asd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

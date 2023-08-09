@@ -52,6 +52,9 @@ namespace mascotas_perdidas_codefirstV3.Models
         public long telefono_dueño { get; set; }
 
         
+        public bool encontrada { get; set; }
+
+
 
     }
 }
