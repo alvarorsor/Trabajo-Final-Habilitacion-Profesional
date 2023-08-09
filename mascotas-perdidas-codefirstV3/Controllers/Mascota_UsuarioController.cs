@@ -18,8 +18,42 @@ namespace mascotas_perdidas_codefirstV3.Controllers
         // GET: Mascota_Usuario
         public ActionResult Index()
         {
+            
+               
+            var mascotas_Usuarios = db.Mascotas_Usuarios.Include(m => m.Mascota);
+
+            var renderMascotaUsuario =
+       from mascotausuario in mascotas_Usuarios
+       where mascotausuario.nombreUsuario == User.Identity.Name
+       select mascotausuario;
+      
+
+            return View(renderMascotaUsuario.ToList());
+            /*
             var mascotas_Usuarios = db.Mascotas_Usuarios.Include(m => m.Mascota);
             return View(mascotas_Usuarios.ToList());
+        */
+        }
+
+        public List<Mascota> ReturnMascotas(string nombreIdentity) {
+
+            List<Mascota> mascotas = new List<Mascota>();
+
+            var mascotas_Usuarios = db.Mascotas_Usuarios.Include(m => m.Mascota);
+
+            foreach (var item in mascotas_Usuarios)
+            {
+                if (item.nombreUsuario == nombreIdentity) {
+
+                    mascotas.Add(item.Mascota);
+
+
+                }
+            }  
+
+           
+
+            return mascotas;
         }
 
         // GET: Mascota_Usuario/Details/5

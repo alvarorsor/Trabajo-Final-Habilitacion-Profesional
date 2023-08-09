@@ -13,7 +13,7 @@ namespace mascotas_perdidas_codefirstV3.Controllers
 {
     public class MascotasController : Controller
     {
-    
+        Mascota_UsuarioController mascota_usuarioController = new Mascota_UsuarioController();
 
         private mascotasContexto db = new mascotasContexto();
 
@@ -22,6 +22,13 @@ namespace mascotas_perdidas_codefirstV3.Controllers
         {
             var mascotas = db.Mascotas.Include(m => m.Especie);
             return View(mascotas.ToList());
+        }
+
+        // GET: Mis Mascotas
+        public ActionResult Mis_Mascotas()
+        {
+
+            return View(mascota_usuarioController.ReturnMascotas(User.Identity.Name).ToList());
         }
 
         // GET: Mascotas/Details/5

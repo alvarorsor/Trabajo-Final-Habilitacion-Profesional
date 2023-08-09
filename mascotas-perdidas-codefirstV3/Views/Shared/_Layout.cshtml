@@ -47,6 +47,9 @@
                     <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
                     <li>@Html.ActionLink("Mascotas perdidas", "Index", "Mascotas")</li>
                     <li>@Html.ActionLink("Registrar mascota", "Create", "Mascotas")</li>
+                  
+                    @if(User.Identity.IsAuthenticated == true) { <li>@Html.ActionLink("Mis mascotas", "Mis_Mascotas", "Mascotas")</li> }
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

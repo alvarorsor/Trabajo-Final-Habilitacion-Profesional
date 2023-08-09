@@ -358,6 +358,7 @@
     <Content Include="Views\Mascota_Usuario\Index.cshtml" />
     <Content Include="Views\Home\Pago_realizado.cshtml" />
     <Content Include="Views\Mascotas\Details.cshtml" />
+    <Content Include="Views\Mascotas\Mis_Mascotas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
