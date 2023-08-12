@@ -38,9 +38,7 @@ namespace mascotas_perdidas_codefirstV3.Models
         [StringLength(50)]
         public string descripcion { get; set; }
 
-        [Column(TypeName = "image")]
-        public byte[] foto { get; set; }
-
+      
         [Required]
         [StringLength(50)]
         public string nombre_dueño { get; set; }
@@ -54,7 +52,7 @@ namespace mascotas_perdidas_codefirstV3.Models
         
         public bool encontrada { get; set; }
 
-
+        public byte[] Imagen { get; set; }
 
     }
 }

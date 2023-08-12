@@ -1,0 +1,24 @@
+﻿html {
+   
+}
+
+body {
+   
+    padding:50px;
+    
+   
+}
+
+
+
+
+footer {
+   
+    bottom: 0;
+
+    width: 95%;
+    height: 50px;
+    background-color: #363636;
+    color: white;
+    text-align: center;
+}

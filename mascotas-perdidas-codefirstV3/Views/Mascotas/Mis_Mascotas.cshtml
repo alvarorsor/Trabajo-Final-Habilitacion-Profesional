@@ -2,60 +2,104 @@
 
 @{
     ViewBag.Title = "Mis_Mascotas";
-
+    
 }
-
-
-
 
 <h2>Mis_Mascotas</h2>
 
-<section className="cards-list cards-list-flex" id="cards-list">
+<p>
+    @Html.ActionLink("REGISTRAR NUEVA MASCOTA", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Especie.tipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.raza)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_extravio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lugar_extravio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <!--
+    <th>
+        @Html.DisplayNameFor(model => model.Imagen)
+    </th>-->
+        <th>
+            @Html.DisplayNameFor(model => model.nombre_dueño)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.correo_dueño)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono_dueño)
+        </th>
+        <th>
+            Estado de la mascota
+        </th>
+        <th></th>
+    </tr>
 
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Especie.tipo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.nombre)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.edad)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.raza)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fecha_extravio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.lugar_extravio)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.descripcion)
+    </td>
+    <!-- <td>
+                @Html.DisplayFor(modelItem => item.Imagen)
+            </td>-->
+    <td>
+        @Html.DisplayFor(modelItem => item.nombre_dueño)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.correo_dueño)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.telefono_dueño)
+    </td>
+    <td>
+        @if (item.encontrada == true)
+        {<p>ENCONTRADA</p> }
+        else
+        { <p>NO ENCONTRADA</p>}
 
-    <div class="buscar--mascota">
+    </td>
+    <td>
+        @Html.ActionLink("EDITAR", "Edit", new { id = item.ID }) |
+        @Html.ActionLink("DETALLES", "Details", new { id = item.ID }) |
+        @Html.ActionLink("BORRAR", "Delete", new { id = item.ID })
+    </td>
+</tr>
+    }
 
-        @foreach (var item in Model)
-        {
-
-            <div class="text-center mascota-list-item">
-
-                <!--NOMBRE MASCOTA-->
-                <h5 class="sub-header">@Html.DisplayFor(modelItem => item.nombre)</h5>
-                <!--team member-->
-                <div class="team-wrap">
-                    <div class="member text-center">
-                        <div class="wrap">
-                            <!-- Info-->
-                            <div class="info">
-                                <!-- RAZA MASCOTA-->
-                                <h3 class="name">@Html.DisplayFor(modelItem => item.raza)</h3>
-                                <!--  Encontrado el día -->
-                                <h4 class="position">Perdido el día @Html.DisplayFor(modelItem => item.fecha_extravio)</h4>
-                            </div>
-                            <!-- IMAGEN DESTACADA 1 -->
-                            <img src="" alt="" class="img-circle img-responsive" />
-                        </div>
-                        <!-- /wrap -->
-                        <div class="more">
-                            <!-- OBSERVACIONES -->
-                            <p>@Html.DisplayFor(modelItem => item.descripcion)</p>
-                            <!-- DETALLES  -->
-                            @Html.ActionLink("DETALLES", "Details", new { id = item.ID })
-                            <br />
-                            @Html.ActionLink("LA ENCONTRE", "Mascotas_Encontradas", new { id = item.ID })
-                        </div>
-                        <!-- /more   -->
-
-                    </div>
-                    <!-- / member  -->
-                </div>
-
-            </div>
-
-        }
-
-    </div>
-
-
-</section>
+    </table>

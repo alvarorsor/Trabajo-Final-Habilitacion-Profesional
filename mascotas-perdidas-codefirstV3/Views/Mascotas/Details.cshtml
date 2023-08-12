@@ -54,8 +54,8 @@
 
                 <h1 class="detalles--mascota--nombre">@Html.DisplayFor(model => model.nombre)</h1>
                 <br />
-                <img src="" class="detalles--mascota--imagen" />
-
+                <img class="detalles--mascota--imagen" src="@Url.Action("getImage", "Mascotas", new { id = Model.ID })" />
+              
             </div>
             <!--cierra campos-derecha-->
 
@@ -94,104 +94,9 @@
     </div>
 
 
-    <!--
-    <h4>Mascota</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Especie.tipo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Especie.tipo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.edad)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.edad)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.raza)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.raza)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.fecha_extravio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.fecha_extravio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.lugar_extravio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.lugar_extravio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.descripcion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.descripcion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.foto)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.foto)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre_dueño)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.nombre_dueño)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.correo_dueño)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.correo_dueño)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.telefono_dueño)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.telefono_dueño)
-        </dd>
-
-    </dl>
-
-        -->
-
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+<p>
+  
+    <a href="javascript:history.back()">Volver Atrás</a>
+
+</p>

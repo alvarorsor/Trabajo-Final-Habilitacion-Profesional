@@ -6,16 +6,16 @@
 <head>
 
 
-
+    <link rel="stylesheet" href="~/Content/Styles.css">
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - AMIGOS PERDIDOS</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-    <link rel="stylesheet" href="~/Content/Site.css" />
 
 </head>
 
@@ -45,10 +45,14 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                     <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Mascotas perdidas", "Index", "Mascotas")</li>
+                    <li>@Html.ActionLink("Mascotas perdidas", "Mascotas_Perdidas", "Mascotas")</li>
                     <li>@Html.ActionLink("Registrar mascota", "Create", "Mascotas")</li>
-                  
-                    @if(User.Identity.IsAuthenticated == true) { <li>@Html.ActionLink("Mis mascotas", "Mis_Mascotas", "Mascotas")</li> }
+                    <li>@Html.ActionLink("Mascotas encontradas", "Mascotas_Encontradas", "Mascotas")</li>
+
+                    @if (User.Identity.IsAuthenticated == true)
+                    {
+                        <li>@Html.ActionLink("Mis mascotas", "Mis_Mascotas", "Mascotas")</li>
+                    }
 
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -60,21 +64,21 @@
 
 
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
 
-        <hr />
-        <footer>
-           
-                2022 Amigos Perdidos             (381) 2222 07 3129              hola@amigosperdidos.org                San Miguel De Tucuman, Argentina
-           
-           
-        </footer>
-    </div>
+
+    @RenderBody()
+    <footer>
+
+        2022 Amigos Perdidos             (381) 2222 07 3129              hola@amigosperdidos.org                San Miguel De Tucuman, Argentina
+
+
+    </footer>
+
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+
     @RenderSection("scripts", required: false)
 </body>
 

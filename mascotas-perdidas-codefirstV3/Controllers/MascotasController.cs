@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using mascotas_perdidas_codefirstV3;
 using mascotas_perdidas_codefirstV3.Models;
@@ -18,14 +22,14 @@ namespace mascotas_perdidas_codefirstV3.Controllers
         private mascotasContexto db = new mascotasContexto();
 
         // GET: Mascotas
-        public ActionResult Index()
+        public ActionResult Mascotas_Perdidas()
         {
             var mascotas = db.Mascotas.Include(m => m.Especie);
 
 
             var renderMascota =
        from mascota in mascotas
-       where mascota.encontrada == true
+       where mascota.encontrada == false
        select mascota;
 
 
@@ -66,8 +70,33 @@ namespace mascotas_perdidas_codefirstV3.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,IDEspecie,nombre,edad,raza,fecha_extravio,lugar_extravio,descripcion,foto,nombre_dueño,correo_dueño,telefono_dueño")] Mascota mascota)
+        public ActionResult Create([Bind(Include = "ID,IDEspecie,nombre,edad,raza,fecha_extravio,lugar_extravio,descripcion,nombre_dueño,correo_dueño,telefono_dueño, Imagen")] Mascota mascota)
         {
+
+            HttpPostedFileBase FileBase = Request.Files[0];
+
+            if (FileBase.ContentLength == 0) {
+
+                ModelState.AddModelError("Imagen", "Es necesario seleccionar una imagen");
+            }
+            else{
+                if (FileBase.FileName.EndsWith(".jpg"))
+                {
+
+                    WebImage image = new WebImage(FileBase.InputStream);
+
+                    mascota.Imagen = image.GetBytes();
+
+                }
+                else {
+
+                    ModelState.AddModelError("Imagen", "El sistema unicamente acepta imagenes con formato JPG");
+                
+                }
+                
+            }
+
+           
 
             Mascota_Usuario mascota_Usuario = new Mascota_Usuario();
 
@@ -83,7 +112,7 @@ namespace mascotas_perdidas_codefirstV3.Controllers
             {
                 db.Mascotas.Add(mascota);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Mis_Mascotas");
             }
            
 
@@ -92,6 +121,9 @@ namespace mascotas_perdidas_codefirstV3.Controllers
             ViewBag.IDEspecie = new SelectList(db.Especies, "ID", "tipo", mascota.IDEspecie);
             return View(mascota);
         }
+
+        
+
         [Authorize]
         // GET: Mascotas/Edit/5
         public ActionResult Edit(int? id)
@@ -114,13 +146,44 @@ namespace mascotas_perdidas_codefirstV3.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,IDEspecie,nombre,edad,raza,fecha_extravio,lugar_extravio,descripcion,foto,nombre_dueño,correo_dueño,telefono_dueño")] Mascota mascota)
+        public ActionResult Edit([Bind(Include = "ID,IDEspecie,nombre,edad,raza,fecha_extravio,lugar_extravio,descripcion,nombre_dueño,correo_dueño,telefono_dueño,encontrada, Imagen")] Mascota mascota)
         {
+
+            //byte[] imagenActual = null;
+            Mascota _mascota = new Mascota();
+
+
+
+            HttpPostedFileBase FileBase = Request.Files[0];
+            if (FileBase.ContentLength == 0)
+            {
+                _mascota = db.Mascotas.Find(mascota.ID);
+                mascota.Imagen = _mascota.Imagen;
+            }
+            else {
+
+                if (FileBase.FileName.EndsWith(".jpg"))
+                {
+
+                    WebImage image = new WebImage(FileBase.InputStream);
+
+                    mascota.Imagen = image.GetBytes();
+
+                }
+                else
+                {
+
+                    ModelState.AddModelError("Imagen", "El sistema unicamente acepta imagenes con formato JPG");
+
+                }
+            }
+
             if (ModelState.IsValid)
             {
+                db.Entry(_mascota).State = EntityState.Detached;
                 db.Entry(mascota).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Mis_Mascotas");
             }
             ViewBag.IDEspecie = new SelectList(db.Especies, "ID", "tipo", mascota.IDEspecie);
             return View(mascota);
@@ -149,7 +212,7 @@ namespace mascotas_perdidas_codefirstV3.Controllers
             Mascota mascota = db.Mascotas.Find(id);
             db.Mascotas.Remove(mascota);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Mis_Mascotas");
         }
 
         protected override void Dispose(bool disposing)
@@ -161,6 +224,7 @@ namespace mascotas_perdidas_codefirstV3.Controllers
             base.Dispose(disposing);
         }
 
+        /*
         // GET: Mascotas/Mascotas_Encontradas/8
         public ActionResult Mascotas_Encontradas(int id)
         {
@@ -187,5 +251,47 @@ namespace mascotas_perdidas_codefirstV3.Controllers
             
             
         }
+        */
+
+
+        // GET: Mascotas/Mascotas_Encontradas
+        public ActionResult Mascotas_Encontradas()
+        {
+            var mascotas = db.Mascotas.Include(m => m.Especie);
+
+
+            var renderMascota =
+       from mascota in mascotas
+       where mascota.encontrada == true
+       select mascota;
+
+
+            return View(renderMascota.ToList());
+        }
+
+        public ActionResult getImage(int id)
+        {
+            Mascota mascota = db.Mascotas.Find(id);
+             
+            if (mascota.Imagen == null) {
+                return View("");
+
+
+                    }
+            else { 
+
+            byte[] byteImage = mascota.Imagen;
+
+            MemoryStream memoryStream = new MemoryStream(byteImage);
+
+            Image image = Image.FromStream(memoryStream);
+
+            memoryStream = new MemoryStream();
+            image.Save(memoryStream, ImageFormat.Jpeg);
+            memoryStream.Position = 0;
+
+            return File(memoryStream, "image/jpg");
+            }
+        }
+        }
     }
-}

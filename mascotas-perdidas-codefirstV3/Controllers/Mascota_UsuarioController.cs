@@ -29,10 +29,7 @@ namespace mascotas_perdidas_codefirstV3.Controllers
       
 
             return View(renderMascotaUsuario.ToList());
-            /*
-            var mascotas_Usuarios = db.Mascotas_Usuarios.Include(m => m.Mascota);
-            return View(mascotas_Usuarios.ToList());
-        */
+          
         }
 
         public List<Mascota> ReturnMascotas(string nombreIdentity) {

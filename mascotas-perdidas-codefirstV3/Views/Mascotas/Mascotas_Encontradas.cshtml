@@ -1,115 +1,56 @@
-﻿@model mascotas_perdidas_codefirstV3.Models.Mascota
+﻿@model IEnumerable<mascotas_perdidas_codefirstV3.Models.Mascota>
 
 @{
     ViewBag.Title = "Mascotas_Encontradas";
-  
+   
 }
 
 <h2>Mascotas_Encontradas</h2>
 
-<div>
-    <h4>Mascota</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Especie.tipo)
-        </dt>
+<section className="cards-list cards-list-flex" id="cards-list">
 
-        <dd>
-            @Html.DisplayFor(model => model.Especie.tipo)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
+    <div class="buscar--mascota">
 
-        <dd>
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
+        @foreach (var item in Model)
+        {
 
-        <dt>
-            @Html.DisplayNameFor(model => model.edad)
-        </dt>
+            <div class="text-center mascota-list-item">
 
-        <dd>
-            @Html.DisplayFor(model => model.edad)
-        </dd>
+                <!--NOMBRE MASCOTA-->
+                <h5 class="sub-header">@Html.DisplayFor(modelItem => item.nombre)</h5>
+                <!--team member-->
+                <div class="team-wrap">
+                    <div class="member text-center">
+                        <div class="wrap">
+                            <!-- Info-->
+                            <div class="info">
+                                <!-- RAZA MASCOTA-->
+                                <h3 class="name">@Html.DisplayFor(modelItem => item.raza)</h3>
+                                <!--  Encontrado el día -->
+                                <h4 class="position">Perdido el día @Html.DisplayFor(modelItem => item.fecha_extravio)</h4>
+                            </div>
+                            <!-- IMAGEN DESTACADA 1 -->
+                            <img width="100" src="@Url.Action("getImage", "Mascotas", new { id = item.ID })" />
+                        </div>
+                        <!-- /wrap -->
+                        <div class="more">
+                            <!-- OBSERVACIONES -->
+                            <p>@Html.DisplayFor(modelItem => item.descripcion)</p>
+                            <!-- DETALLES  -->
+                            @Html.ActionLink("DETALLES", "Details", new { id = item.ID })
+                        </div>
+                        <!-- /more   -->
 
-        <dt>
-            @Html.DisplayNameFor(model => model.raza)
-        </dt>
+                    </div>
+                    <!-- / member  -->
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.raza)
-        </dd>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.fecha_extravio)
-        </dt>
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.fecha_extravio)
-        </dd>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.lugar_extravio)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.lugar_extravio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.descripcion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.descripcion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.foto)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.foto)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre_dueño)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.nombre_dueño)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.correo_dueño)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.correo_dueño)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.telefono_dueño)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.telefono_dueño)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.encontrada)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.encontrada)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+</section>

@@ -9,7 +9,7 @@ html {
 footer {
    
     
-    background-color: blue;
+    background-color: black;
      margin: 1rem;
     color: red;
 }
@@ -34,8 +34,8 @@ textarea {
 
 
 
-body {
-
+html, body {
+    min-height: 100%;
 }
 
 .registrarMascotaCampos {
@@ -501,7 +501,7 @@ input.invalid {
     }
 
     .cards-home > p {
-        color: #757373
+        color: #757373;
     }
 
 .card > img {

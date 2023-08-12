@@ -1,8 +1,12 @@
 ﻿@model IEnumerable<mascotas_perdidas_codefirstV3.Models.Mascota>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Mascotas_Perdidas";
 }
+
+<head>
+    <link rel="stylesheet" href="~/Content/Styles.css">
+</head>
 
 <h2>Index</h2>
 
@@ -33,7 +37,7 @@
                                 <h4 class="position">Perdido el día @Html.DisplayFor(modelItem => item.fecha_extravio)</h4>
                             </div>
                             <!-- IMAGEN DESTACADA 1 -->
-                            <img src="" alt="" class="img-circle img-responsive" />
+                            <img width="100" src="@Url.Action("getImage", "Mascotas", new { id = item.ID })" />
                         </div>
                         <!-- /wrap -->
                         <div class="more">
@@ -59,57 +63,3 @@
 
  
 
-    <!--
-
-
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Especie.tipo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.edad)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.raza)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.fecha_extravio)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.lugar_extravio)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.descripcion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.foto)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.nombre_dueño)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.correo_dueño)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.telefono_dueño)
-                </td>
-                <td>
-
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-
-                </td>
-            </tr>
-        }
-
-
-
-
-
-
-        -->
