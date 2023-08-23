@@ -5,7 +5,11 @@
     
 }
 
-<h2>Mis_Mascotas</h2>
+<head>
+    <link rel="stylesheet" href="~/Content/Styles.css">
+</head>
+
+
 
 <p>
     @Html.ActionLink("REGISTRAR NUEVA MASCOTA", "Create")
@@ -67,7 +71,8 @@
         @Html.DisplayFor(modelItem => item.raza)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.fecha_extravio)
+        @* @Html.DisplayFor(modelItem => item.fecha_extravio)*@
+        @item.fecha_extravio.ToString("dd/MM/yyyy")
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.lugar_extravio)

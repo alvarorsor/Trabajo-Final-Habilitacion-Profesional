@@ -5,7 +5,7 @@
 
 }
 
-<h2>Details</h2>
+<link rel="stylesheet" href="~/Content/Styles.css">
 
 <div>
 
@@ -38,7 +38,7 @@
                     <br />
                     <label>@Html.DisplayFor(model => model.raza)</label>
                     <br />
-                    <label>@Html.DisplayFor(model => model.fecha_extravio)</label>
+                    <label>@Model.fecha_extravio.ToString("dd/MM/yyyy")</label>
                     <br />
                     <label class="observaciones">@Html.DisplayFor(model => model.descripcion)</label>
 
@@ -55,7 +55,7 @@
                 <h1 class="detalles--mascota--nombre">@Html.DisplayFor(model => model.nombre)</h1>
                 <br />
                 <img class="detalles--mascota--imagen" src="@Url.Action("getImage", "Mascotas", new { id = Model.ID })" />
-              
+
             </div>
             <!--cierra campos-derecha-->
 
@@ -94,9 +94,9 @@
     </div>
 
 
-    </div>
+</div>
 <p>
-  
+
     <a href="javascript:history.back()">Volver Atrás</a>
 
 </p>

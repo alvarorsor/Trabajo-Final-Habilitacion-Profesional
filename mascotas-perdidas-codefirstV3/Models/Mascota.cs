@@ -28,8 +28,11 @@ namespace mascotas_perdidas_codefirstV3.Models
         [StringLength(20)]
         public string raza { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime? fecha_extravio { get; set; }
+        [Required(ErrorMessage ="{0} es requerido")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}", ApplyFormatInEditMode =true)]
+        [Display(Name ="Fecha de extravio")]
+        public System.DateTime fecha_extravio { get; set; }
 
         [Required]
         [StringLength(20)]

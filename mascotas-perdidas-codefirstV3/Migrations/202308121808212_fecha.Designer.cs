@@ -7,13 +7,13 @@ namespace mascotas_perdidas_codefirstV3.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class image : IMigrationMetadata
+    public sealed partial class fecha : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(image));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(fecha));
         
         string IMigrationMetadata.Id
         {
-            get { return "202308112111044_image"; }
+            get { return "202308121808212_fecha"; }
         }
         
         string IMigrationMetadata.Source

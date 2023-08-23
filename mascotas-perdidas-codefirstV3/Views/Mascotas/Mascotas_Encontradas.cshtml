@@ -5,7 +5,9 @@
    
 }
 
-<h2>Mascotas_Encontradas</h2>
+<head>
+    <link rel="stylesheet" href="~/Content/Styles.css">
+</head>
 
 <section className="cards-list cards-list-flex" id="cards-list">
 
@@ -28,7 +30,7 @@
                                 <!-- RAZA MASCOTA-->
                                 <h3 class="name">@Html.DisplayFor(modelItem => item.raza)</h3>
                                 <!--  Encontrado el día -->
-                                <h4 class="position">Perdido el día @Html.DisplayFor(modelItem => item.fecha_extravio)</h4>
+                                <h4 class="position">Perdido el día @item.fecha_extravio.ToString("dd/MM/yyyy")</h4>
                             </div>
                             <!-- IMAGEN DESTACADA 1 -->
                             <img width="100" src="@Url.Action("getImage", "Mascotas", new { id = item.ID })" />

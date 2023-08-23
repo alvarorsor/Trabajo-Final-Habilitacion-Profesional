@@ -3,16 +3,16 @@ namespace mascotas_perdidas_codefirstV3.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class image : DbMigration
+    public partial class fecha : DbMigration
     {
         public override void Up()
         {
-            DropColumn("dbo.Mascotas", "foto");
+            AlterColumn("dbo.Mascotas", "fecha_extravio", c => c.DateTime(nullable: false));
         }
         
         public override void Down()
         {
-            AddColumn("dbo.Mascotas", "foto", c => c.Binary(storeType: "image"));
+            AlterColumn("dbo.Mascotas", "fecha_extravio", c => c.DateTime(storeType: "date"));
         }
     }
 }

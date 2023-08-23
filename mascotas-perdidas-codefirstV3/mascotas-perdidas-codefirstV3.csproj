@@ -263,9 +263,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="mascotasContexto.cs" />
-    <Compile Include="Migrations\202308112111044_image.cs" />
-    <Compile Include="Migrations\202308112111044_image.Designer.cs">
-      <DependentUpon>202308112111044_image.cs</DependentUpon>
+    <Compile Include="Migrations\202308121808212_fecha.cs" />
+    <Compile Include="Migrations\202308121808212_fecha.Designer.cs">
+      <DependentUpon>202308121808212_fecha.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Especie.cs" />
@@ -374,8 +374,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202308112111044_image.resx">
-      <DependentUpon>202308112111044_image.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202308121808212_fecha.resx">
+      <DependentUpon>202308121808212_fecha.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
