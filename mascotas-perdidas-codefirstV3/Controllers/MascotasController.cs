@@ -39,8 +39,15 @@ namespace mascotas_perdidas_codefirstV3.Controllers
         // GET: Mascotas/Mis_Mascotas
         public ActionResult Mis_Mascotas()
         {
-
-            return View(mascota_usuarioController.ReturnMascotas(User.Identity.Name).ToList());
+            if (User.IsInRole("Administrador"))
+            {
+       
+                return View(db.Mascotas.Include(m => m.Especie).ToList());
+            }
+            else {
+            
+                return View(mascota_usuarioController.ReturnMascotas(User.Identity.Name).ToList());
+            }
         }
 
         // GET: Mascotas/Details/5
